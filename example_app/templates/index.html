@@ -1,0 +1,131 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <!------ CSS------->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+
+    
+
+    <title>Hompage</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container">
+            <a class="navbar-brand" href="#">QODRA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav  ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">BOT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">DOCUMENTATION</a>
+            </li>
+            
+          </ul>
+        </div>
+        </div>
+      </nav>
+
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 text-center mt-5">
+                  <h5>Ask Qodra AI chatbot to know about bus routes available in Dhaka city</h5>
+              </div>
+          </div>
+          <div class="row  mt-5">
+              <div class="col-sm-1"></div>
+              <div class="col-sm-10 chat-block pd-3 m-3">
+                <div class="row p-2">
+                    <div class="col-sm-12 text-right">
+                        <p class="h-chat"> <span>Hi</span> </p>
+                    </div>
+                </div>
+                    <div class="row p-2">
+                        <div class="col-sm-1">
+                            <img src="{% static 'img/bot (1).svg' %}" alt="" class="img-fluid boot-image">
+                        </div>
+                        <div class="col-sm-11">
+                            <p class="bot-chat"><span>hello</span> </p>
+                        </div>
+                    </div>
+
+                    <div class="row p-2">
+                        <div class="col-sm-12 text-right">
+                            <p class="h-chat"> <span>How are you?</span> </p>
+                        </div>
+                    </div>
+
+                    <div class="row p-2">
+                        <div class="col-sm-1">
+                            <img src="{% static 'img/bot (1).svg' %}" alt="" class="img-fluid boot-image">
+                        </div>
+                        <div class="col-sm-11">
+                            <p class="bot-chat"> <span>I am doing well</span> </p>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center m-3 p-3">
+                       
+                        <div class="col-sm-10">
+                            <input class="form-control form-control-sm form-search" id="statement" type="text" placeholder="Ask Qodra to train">
+                        </div>
+                        <div class="col-sm-1 text-right">
+                            <button type="button" class="btn  btn-sm train-btn" id="train">Train</button>
+                        </div>
+                   
+                    </div>
+              </div>
+
+              <div class="col-sm-1"></div>
+          </div>
+      </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first,then Bootstrap JS -->
+    <script src="{% static 'js/jQuery.js' %}"></script>
+    <script src="{% static 'js/js.cookie.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript">
+      $(document).ready(function(e){
+          $("#train").click(function(e){
+            e.preventDefault();
+            var chatterbotUrl = '{% url "chatterbot" %}';
+            var token = '{{csrf_token}}';
+            var statement = $("#statement").val();
+            console.log(statement);
+            $.ajax({
+              type: 'POST',
+              url: chatterbotUrl,
+              data: {
+                statement : statement,
+                csrfmiddlewaretoken: token,
+              },
+              success: function(gotIt,status){
+               console.log(gotIt)
+
+              },
+              error : function(){
+                alert('Console');
+              }
+            })
+          });
+        });
+
+    </script>
+    
+  </body>
+</html>

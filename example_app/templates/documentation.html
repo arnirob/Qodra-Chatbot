@@ -1,0 +1,89 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!------ CSS------->
+  <link rel="stylesheet"  href="{% static '/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static '/css/custom.css' %}"/>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static '/img/Group_834.png' %}"/>
+
+
+  <title>Qodra-Chatbot</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'main' %}"><img src="{% static '/img/logo.png' %}"  class="img-fluid" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav  ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'main' %}">BOT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active-link" href="#">DOCUMENTATION</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8  chat-block mt-3">
+                <div class="row">
+                    <div class="col-sm12 pl-5 pr-5 pb-5 requirment">
+                        <i><h2 class="mt-5 h3" id="doc">Documentation Design is Under Development</h1></i>
+                        <h5 class="pt-5 pb-2">Requirements</h2>
+                        <p>-- Requirement List </p>
+
+                        <h5 class="pt-4 pb-3">Module Outlines</h5>
+                        <p>-- </p>
+                        <p>-- </p>
+                        <p>-- </p>
+
+                        <h5 class="pt-4 pb-3">Module Usage</h5>
+                        <p>Mauris neque nisi, faucibus non elementum in, convallis et eros. Sed pretium sem libero, vel pellentesque purus ultrices ut. In quis leo id massa pulvinar euismod cursus non justo. Sed sagittis et urna non efficitur. Nulla nec lacus tincidunt, rutrum arcu in, euismod diam. Donec neque tellus, congue sed velit sed, scelerisque scelerisque urna. Praesent mi sem, tincidunt eget facilisis in, pharetra et sapien. Proin sagittis erat magna, id eleifend ante posuere nec. Suspendisse potenti. Suspendisse tincidunt sed tortor at porta. Donec a molestie lectus, ac laoreet tellus. Nullam non rutrum velit, in lacinia diam. Nam vulputate elit sit amet orci mattis faucibus. Nam auctor eu eros in vehicula. Donec non risus id lacus aliquet dignissim.sapien. Proin sagittis erat magna, id eleifend ante posuere nec. Suspendisse potenti. Suspendisse tincidunt sed tortor at porta. Donec a molestie lectus, ac laoreet tellus. Nullam non rutrum velit, in lacinia diam. Nam vulputate elit sit amet orci mattis faucibus. Nam auctor eu eros in vehicula. Donec non risus id lacus aliquet dignissim.</p>
+                      <div class="row">
+                      <a href="https://docs.google.com/document/d/1KDXs871ZAIpsw8wryGSK_qPIeQI_YVd71rpSRPkYEGs/edit?usp=sharing">
+                        <h4 class="pt-4 pb-3" style="color:black"> <i>Project Report </i> </h4>
+                      </a>
+                      
+                    </div>
+                    </div>
+                </div>
+                
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+    
+  </div>
+
+<footer class="container-fluid text-center mt-5">
+<p>Developed By - Team Ubiquitous | Daffodil International University, CSE Department</p>
+</footer>
+
+</body>
+
+  <!-- Starting Javascript -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/js.cookie.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</html>

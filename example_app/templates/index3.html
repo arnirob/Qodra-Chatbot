@@ -1,0 +1,204 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!------ CSS------->
+  <link rel="stylesheet"  href="{% static '/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static '/css/custom.css' %}"/>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static '/img/Group_834.png' %}"/>
+
+
+  <title>Qodra-Chatbot</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="{% static '/img/logo.png' %}" class="img-fluid" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav  ml-auto">
+          <li class="nav-item">
+            <a class="nav-link  active-link" href="#">BOT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://sites.google.com/diu.edu.bd/qodra/about-us?authuser=0">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://sites.google.com/diu.edu.bd/qodra">DOCUMENTATION</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid mt-3">
+   <div class="row">
+    <div class="col-sm-7 bg mask" style="background-image: url({% static '/img/leftbg.png' %})">
+        <div class="head">
+          <h2>Turn Conversation into</h2>
+        <h3>a better engagement <br> with Qodra Chatbot</h3>
+        </div>
+    </div>
+    <div class="col-sm-3 bot-img">
+      <img src="{% static '/img/bot.png' %}" class="img-fluid logo-bot" alt="">
+    </div>
+   </div>
+  </div>
+
+  <div class="container">
+    <div class="row margintop">
+      <div class="col-lg-12 text-center mt-5">
+        <h5 class="headline">Ask Qodra AI chatbot about buses and other basic things.</h5>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10  chat-block scroller pd-3 m-3" id="chatlog">
+      </div>
+
+      <div class="col-sm-2"></div>
+    </div>
+    <div class="container">
+      <div class="row m-3">
+         <div class="col-sm-10">
+            <div class="row">
+              <div class="col-sm-11">
+            <input class="form-control form-control-sm form-search" id="statement" type="text" placeholder="Ask Qodra to train">
+          </div>
+          <div class="col-sm-1 text-right">
+            <button type="button" class="btn train-btn" id="train">Send</button>
+          </div>
+            </div>
+         </div>
+      </div>
+    </div>
+
+    <div class="row d-flex align-items-center justify-content-center mt-5 mb-5">
+      <div class="col-sm-5 about">
+          <h4 class="mb-4">About Qodra Chatbot</h4>
+          <p> <span> Qodra ChatBot</span> is an Artificial Intelligent based Expert System. It can make conversations with you on specific context and can give you information about bus names which routes in Dhaka City. By Dhaka city we mean starting point starts from Abdullahpur.</p>
+          <p>This project is developed by the students of <span> Daffodil International university.</span> The team name is Ubiquitous. Team is consiting of three members.</p>
+
+          <h4 class="mt-5 mb-5">Interested to know about Qodra Chatbot?</h4>
+          
+          <a href="https://sites.google.com/diu.edu.bd/qodra" class="view-btn mt-5 pl-5 pr-5 pt-4 pb-4 mt-5" style="color:black"> View The Documentation
+          </a>
+
+      </div>
+        
+      <div class="col-sm-5 about-2 mt-5">
+        <img src="{% static '/img/Reflection.png' %}" alt="" class="img-fluid mobile">
+
+        <h5>Will be available on GooglePlay <img src="{% static '/img/5a902dbf7f96951c82922875.png' %}" alt="" class="img-fluid"></h5>
+      </div>
+    </div>
+    
+  </div>
+
+
+<footer class="container-fluid text-center">
+<p>Developed By - Team Ubiquitous | Daffodil International University, CSE Department</p>
+<div class=" ml-5 ">
+        <a href="https://sites.google.com/diu.edu.bd/qodra"style="color:black"><p>Google Site</p></a>
+      </div>
+</footer>
+
+</body>
+
+  <!-- Starting Javascript -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/js.cookie.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript">
+
+      
+      function createRowUser(text) {
+        $chatlog = $('#chatlog');
+        var $row = $('<div class="row p-1"><div class="col-sm-12 text-right pt-1 pb-2"><p class="h-chat"> <span>'+ text +'</span> </p></div></div>');
+
+        // $row.text(text);
+        $chatlog.append($row);
+      }
+
+       function createRowBot(text) {
+        $chatlog = $('#chatlog');
+        // var $row = $('<div class="row p-1"> <div class="col-sm-1"><img src="{% static "img/bot (1).svg" %}" alt="" class="img-fluid boot-image"> </div><div class="col-sm-11"><p class="bot-chat"><span>'+text+'</span> </p></div></div>');
+
+        var $row = $('<div class="row d-felx align-items-center">'
+          + '<div class="col-sm-2">' 
+          + '<img src="{% static "/img/bot_chat.png"  %}" alt="" class="boot-image img-fluid"> '
+          + ' </div>'
+          + ' <div class="col-sm-10">'
+          + ' <p class="bot-chat"><span>' + text +'</span> </p>'
+          + '</div>'
+          + '</div>');
+
+        // $row.text(text);
+        $chatlog.append($row);
+      }
+
+      function makeReq(chatterbotUrl, statement ){
+        $.ajax({
+              type: 'POST',
+              url: chatterbotUrl,
+              data: {
+                statement: statement,
+                // csrfmiddlewaretoken: token,
+              },
+              success: function(gotIt,status){
+                console.log(gotIt)
+                var cmd = "";
+                createRowBot(gotIt['text']);
+                var objDiv = document.getElementById("chatlog");
+                objDiv.scrollTop = objDiv.scrollHeight;
+
+              },
+              error : function(){
+                alert('Internal Server Error.');
+              }
+            })
+      }
+
+
+      $(document).ready(function(e){
+
+          $("#train").click(function(e){
+            e.preventDefault();
+            // var chatterbotUrl = '';
+
+            var chatterbotUrl = "/api/chatterbot/";
+            var token = '{{csrf_token}}';
+            var statement = $("#statement").val();
+            // console.log(chatterbotUrl);
+            if(statement !== ""){
+              createRowUser(statement);
+              var objDiv = document.getElementById("chatlog");
+              objDiv.scrollTop = objDiv.scrollHeight;
+              $("#statement").val("");
+              makeReq(chatterbotUrl,statement);  
+            }
+            
+
+          });
+
+          $('#statement').keypress(function(e){
+            if(e.which == 13){//Enter key pressed
+                $('#train').click();//Trigger search button click event
+            }
+          });
+
+        });
+
+    </script>
+
+</html>
